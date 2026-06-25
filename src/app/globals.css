@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap");
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+/* Define custom CSS variables */
+:root {
+  --primary-50: rgb(240, 242, 255);
+  --primary-100: rgb(224, 231, 255);
+  --primary-200: rgb(199, 210, 254);
+  --primary-300: rgb(165, 180, 252);
+  --primary-400: rgb(129, 140, 248);
+  --primary-500: rgb(36, 22, 222);   /* Your #2416de */
+  --primary-600: rgb(32, 20, 200);
+  --primary-700: rgb(29, 18, 178);
+  --primary-800: rgb(25, 15, 156);
+  --primary-900: rgb(22, 13, 134);
+  
+  --secondary-50: rgb(236, 253, 245);
+  --secondary-100: rgb(209, 250, 229);
+  --secondary-200: rgb(167, 243, 208);
+  --secondary-300: rgb(110, 231, 183);
+  --secondary-400: rgb(52, 211, 153);
+  --secondary-500: rgb(113, 240, 193); /* Your #71f0c1 */
+  --secondary-600: rgb(101, 216, 174);
+  --secondary-700: rgb(89, 192, 154);
+  --secondary-800: rgb(77, 168, 135);
+  --secondary-900: rgb(65, 144, 115);
+}
+
+/* ── Typography: fonts + fluid responsive type scale ─────────────
+   Single source of truth for font families and font sizes.
+   - To change the site font, edit --font-sans / --font-heading below.
+   - text-* utilities (text-xs … text-9xl) are fluid: they scale
+     smoothly between a compact mobile size (~375px) and the
+     desktop size (~1280px), giving a consistent, mobile-first
+     typographic scale across the whole site. */
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+
+  --text-3xs: clamp(0.5625rem, 0.54rem + 0.11vw, 0.625rem);
+  --text-3xs--line-height: 1.4;
+  --text-2xs: clamp(0.625rem, 0.6rem + 0.11vw, 0.6875rem);
+  --text-2xs--line-height: 1.4;
+  --text-xs: clamp(0.7rem, 0.68rem + 0.09vw, 0.75rem);
+  --text-xs--line-height: 1.4;
+  --text-sm: clamp(0.8125rem, 0.79rem + 0.11vw, 0.875rem);
+  --text-sm--line-height: 1.5;
+  --text-base: clamp(0.9375rem, 0.91rem + 0.11vw, 1rem);
+  --text-base--line-height: 1.6;
+  --text-lg: clamp(1rem, 0.95rem + 0.22vw, 1.125rem);
+  --text-lg--line-height: 1.55;
+  --text-xl: clamp(1.0625rem, 0.98rem + 0.33vw, 1.25rem);
+  --text-xl--line-height: 1.45;
+  --text-2xl: clamp(1.1875rem, 1.06rem + 0.55vw, 1.5rem);
+  --text-2xl--line-height: 1.35;
+  --text-3xl: clamp(1.375rem, 1.17rem + 0.88vw, 1.875rem);
+  --text-3xl--line-height: 1.25;
+  --text-4xl: clamp(1.625rem, 1.37rem + 1.1vw, 2.25rem);
+  --text-4xl--line-height: 1.15;
+  --text-5xl: clamp(1.875rem, 1.41rem + 1.99vw, 3rem);
+  --text-5xl--line-height: 1.1;
+  --text-6xl: clamp(2.25rem, 1.63rem + 2.65vw, 3.75rem);
+  --text-6xl--line-height: 1.05;
+  --text-7xl: clamp(2.625rem, 1.85rem + 3.31vw, 4.5rem);
+  --text-7xl--line-height: 1;
+  --text-8xl: clamp(3.25rem, 2.11rem + 4.86vw, 6rem);
+  --text-8xl--line-height: 1;
+  --text-9xl: clamp(4rem, 2.34rem + 7.07vw, 8rem);
+  --text-9xl--line-height: 1;
+
+  --color-primary-50: 240 242 255;
+  --color-primary-100: 224 231 255;
+  --color-primary-200: 199 210 254;
+  --color-primary-300: 165 180 252;
+  --color-primary-400: 129 140 248;
+  --color-primary-500: 36 22 222;
+  --color-primary-600: 32 20 200;
+  --color-primary-700: 29 18 178;
+  --color-primary-800: 25 15 156;
+  --color-primary-900: 22 13 134;
+  
+  --color-secondary-50: 236 253 245;
+  --color-secondary-100: 209 250 229;
+  --color-secondary-200: 167 243 208;
+  --color-secondary-300: 110 231 183;
+  --color-secondary-400: 52 211 153;
+  --color-secondary-500: 113 240 193;
+  --color-secondary-600: 101 216 174;
+  --color-secondary-700: 89 192 154;
+  --color-secondary-800: 77 168 135;
+  --color-secondary-900: 65 144 115;
+}
+
+/* Utility classes as fallback */
+.bg-primary-500 {
+  background-color: rgb(36, 22, 222) !important;
+}
+
+.bg-primary-600 {
+  background-color: rgb(32, 20, 200) !important;
+}
+
+.bg-secondary-500 {
+  background-color: rgb(113, 240, 193) !important;
+}
+
+.text-primary-500 {
+  color: rgb(36, 22, 222) !important;
+}
+
+.text-secondary-500 {
+  color: rgb(113, 240, 193) !important;
+}
+
+.border-primary-500 {
+  border-color: rgb(36, 22, 222) !important;
+}
+
+.border-secondary-500 {
+  border-color: rgb(113, 240, 193) !important;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+/* ── Pix.city app design tokens ──────────────────────────────── */
+:root {
+  --blue: #1230f5;
+  --blue-pale: #eef1fe;
+  --cream: #faf4ec;
+  --dark: #0f172a;
+  --dark2: #334155;
+  --gray: #64748b;
+  --gray2: #94a3b8;
+  --gray-light: #f1f5f9;
+  --border: #e2e8f0;
+  --green: #22c55e;
+  --green-pale: #f0fdf4;
+  --orange: #f97316;
+  --orange-pale: #fff7ed;
+  --yellow-pale: #fffbeb;
+  --pink: #ec4899;
+  --pink-pale: #fdf2f8;
+
+  /* event type accent colors */
+  --cm-color: #1230f5;
+  --cm-pale: #eef1fe;
+  --pa-color: #7c3aed;
+  --pa-pale: #f5f3ff;
+  --pac-color: #f97316;
+  --pac-pale: #fff7ed;
+  --ps-color: #ec4899;
+  --ps-pale: #fdf2f8;
+}
+
+.font-bricolage {
+  font-family: var(--font-heading);
+}
+
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { scrollbar-width: none; }
+
+@keyframes toast-shrink {
+  from { width: 100%; }
+  to   { width: 0%; }
+}
+
+@keyframes panel-in {
+  from { opacity: 0; transform: translateY(-8px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-panel-in {
+  animation: panel-in 0.18s ease-out;
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes slide-out-right {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100%); }
+}
+
+@media (max-width: 1023.98px) and (prefers-reduced-motion: no-preference) {
+  .animate-slide-in-right {
+    animation: slide-in-right 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .animate-slide-out-right {
+    animation: slide-out-right 0.3s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+  }
+}
+
+.popup-scroll {
+  scrollbar-width: thin;              
+  scrollbar-color: rgba(100,116,139,0.4) transparent;
+}
+
+.popup-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.popup-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.popup-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(100,116,139,0.35);
+  border-radius: 999px;
+}
+
+.popup-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100,116,139,0.55);
+}

@@ -1,0 +1,1 @@
+docker exec -it pixcity-citymaker-dev bash
